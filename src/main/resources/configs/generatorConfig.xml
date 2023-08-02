@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+ 
+<generatorConfiguration>
+  	<context id="DB2Tables" targetRuntime="MyBatis3">
+  	<property name="autoDelimitKeywords" value="true"/>
+  	<property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+    <commentGenerator>
+    	<!-- 是否去除自动生成的注释 -->
+    	<property name="suppressAllComments" value="false"/>
+    </commentGenerator>
+    <!-- Mysql数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/testpro3"
+        userId="root"
+        password="8477">
+    </jdbcConnection>
+    
+    <!--  
+    <jdbcConnection driverClass="org.postgresql.Driver"
+        connectionURL="jdbc:postgresql://127.0.0.1:5432/kongjianshujuku?searchpath=china"
+        userId="postgres"
+        password="longzhaoli!">
+    </jdbcConnection>
+    -->
+    
+    <!-- Oracle数据库
+	    <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+	        connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg"
+	        userId="yycg"
+	        password="yycg">
+	    </jdbcConnection> 
+    -->
+	
+	<!-- 默认为false，把JDBC DECIMAL 和NUMERIC类型解析为Integer，为true时
+	把JDBC DECIMAL 和NUMERIC类型解析为java.math.BigDecimal -->
+    <javaTypeResolver >
+		<property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+	
+	<!-- targetProject：生成POJO类的位置 -->
+    <javaModelGenerator targetPackage="cn.xjtu.zun.tiesheyuan.pojo" targetProject=".\src\main\java">
+		<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<property name="enableSubPackages" value="false" />
+		<!-- 从数据库返回的值被清理前后的空格 -->
+		<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    
+	<!-- targetProject：mapper映射文件生成的位置 -->
+    <sqlMapGenerator targetPackage="cn.xjtu.zun.tiesheyuan.mapper"  targetProject=".\src\main\java">
+		<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<property name="enableSubPackages" value="false" />
+    </sqlMapGenerator>
+    
+	<!-- targetProject：mapper接口生成的的位置 -->
+	<javaClientGenerator type="XMLMAPPER" targetPackage="cn.xjtu.zun.tiesheyuan.mapperImpl"  targetProject=".\src\main\java">
+		<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<property name="enableSubPackages" value="false" />
+		
+    </javaClientGenerator>
+    
+	<!-- 指定数据表 -->
+<!--	<table schema="" tableName="biaozhundiceng">-->
+<!--		<generatedKey column="BZDCID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	<table schema="" tableName="dixingdituziliao">-->
+<!--		<generatedKey column="DXDTZLID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	<table schema="" tableName="dizhidiaohui">-->
+<!--		<generatedKey column="DZDHID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi">-->
+<!--    	<generatedKey column="DZDH_BLDZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_bengta">-->
+<!--    	<generatedKey column="DZDH_BLDZ_BTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_dimianchenjiang">-->
+<!--    	<generatedKey column="DZDH_BLDZ_DMCJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_dizhenqu">-->
+<!--    	<generatedKey column="DZDH_BLDZ_DZQID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_fangshexing">-->
+<!--    	<generatedKey column="DZDH_BLDZ_FSXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_fengsha">-->
+<!--    	<generatedKey column="DZDH_BLDZ_FSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_huapo">-->
+<!--    	<generatedKey column="DZDH_BLDZ_HPID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_nishiliu">-->
+<!--    	<generatedKey column="DZDH_BLDZ_NSLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_renweikengdong">-->
+<!--    	<generatedKey column="DZDH_BLDZ_RWKDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_rongdong">-->
+<!--    	<generatedKey column="DZDH_BLDZ_RDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_shuikutaan">-->
+<!--    	<generatedKey column="DZDH_BLDZ_SKTAID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_weiyanluoshi">-->
+<!--    	<generatedKey column="DZDH_BLDZ_WYLSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_xuebeng">-->
+<!--    	<generatedKey column="DZDH_BLDZ_XBID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_yandui">-->
+<!--    	<generatedKey column="DZDH_BLDZ_YDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_yanrong">-->
+<!--    	<generatedKey column="DZDH_BLDZ_YRID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_buliangdizhi_youhaiqiti">-->
+<!--    	<generatedKey column="DZDH_BLDZ_YHQTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_dicengyanxing">-->
+<!--    	<generatedKey column="DZDH_DCYXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_dixingdimao">-->
+<!--    	<generatedKey column="DZDH_DXDMID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_dizhigouzao">-->
+<!--    	<generatedKey column="DZDH_DZGZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_dizhigouzao_duanceng">-->
+<!--    	<generatedKey column="DZDH_DZGZ_DCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_dizhigouzao_zhezhou">-->
+<!--    	<generatedKey column="DZDH_DZGZ_ZZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_shuiwendizhi">-->
+<!--    	<generatedKey column="DZDH_SWDZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_shuiwendizhi_quan">-->
+<!--    	<generatedKey column="DZDH_SWDZ_QID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_shuiwendizhi_shuijing">-->
+<!--    	<generatedKey column="DZDH_SWDZ_SJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu">-->
+<!--    	<generatedKey column="DZDH_TSYTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_bingqiwu">-->
+<!--    	<generatedKey column="DZDH_TSYT_BQWID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_dongtu">-->
+<!--    	<generatedKey column="DZDH_TSYT_DTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_huangtu">-->
+<!--    	<generatedKey column="DZDH_TSYT_HTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_pengzhangyan">-->
+<!--    	<generatedKey column="DZDH_TSYT_PZYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_ruantu">-->
+<!--    	<generatedKey column="DZDH_TSYT_RTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_tiantu">-->
+<!--    	<generatedKey column="DZDH_TSYT_TTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_yanyanjiyanziyan">-->
+<!--    	<generatedKey column="DZDH_TSYT_YYJYZYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_yanzitu">-->
+<!--    	<generatedKey column="DZDH_TSYT_YZTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="dizhidiaohui_teshuyantu_pengzhangtuhehongniantu">-->
+<!--    	<generatedKey column="DZDH_TSYT_PZTHHNTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="fanganxiantiao">-->
+<!--    	<generatedKey column="FAXTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="feizuankongyuanweiceshi">-->
+<!--    	<generatedKey column="FZKYWCSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="feizuankongyuanweiceshi_bianbancezhang">-->
+<!--    	<generatedKey column="FZKYWCS_BBCZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="feizuankongyuanweiceshi_pingbanzaiheshiyan">-->
+<!--    	<generatedKey column="FZKYWCS_PBZHSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="feizuankongyuanweiceshi_shizibanjianqie">-->
+<!--    	<generatedKey column="FZKYWCS_SZBJQID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="gongdian">-->
+<!--    	<generatedKey column="GDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="guancedian">-->
+<!--    	<generatedKey column="GCDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="guancediceng">-->
+<!--    	<generatedKey column="GCDCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="guancejieli">-->
+<!--    	<generatedKey column="GCJLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="gongchengxinxi">-->
+<!--    	<generatedKey column="GCXXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan">-->
+<!--    	<generatedKey column="JTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="kantandian">-->
+<!--    	<generatedKey column="KTDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="qixiangziliao">-->
+<!--    	<generatedKey column="QXZLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="quyudizhiziliao">-->
+<!--    	<generatedKey column="QYDZZLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shikeng">-->
+<!--    	<generatedKey column="SKID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan">-->
+<!--    	<generatedKey column="SNSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_dongtushiyan">-->
+<!--    	<generatedKey column="SNSY_DTSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_pengzhangxingfenxi">-->
+<!--    	<generatedKey column="SNSY_PZXFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    -->
+<!--    <table schema="" tableName="shineishiyan_shuizhifenxi">-->
+<!--    	<generatedKey column="SNSY_SZFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    -->
+<!--    <table schema="" tableName="shineishiyan_shuizhijianfenxi">-->
+<!--    	<generatedKey column="SNSY_SZJFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_shuizhiquanfenxi">-->
+<!--    	<generatedKey column="SNSY_SZQFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_tugongshiyan">-->
+<!--    	<generatedKey column="SNSY_TGSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_tuhuazonghefenxi">-->
+<!--    	<generatedKey column="SNSY_THZHFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_yanshibaopianjianding">-->
+<!--    	<generatedKey column="SNSY_YSBPJDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_yanshishiyan">-->
+<!--    	<generatedKey column="SNSY_YSSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_yantuhuaxuefenxi">-->
+<!--    	<generatedKey column="SNSY_YTHXFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="shineishiyan_yirongyanfenxi">-->
+<!--    	<generatedKey column="SNSY_YTYFXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang">-->
+<!--    	<generatedKey column="WTDXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_cequ">-->
+<!--    	<generatedKey column="WTDX_CQID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_cequ_hangkongwutan">-->
+<!--    	<generatedKey column="WTDX_CQ_HKWTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_cexian">-->
+<!--    	<generatedKey column="WTDX_CXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_cexian_dadidianci">-->
+<!--    	<generatedKey column="WTDX_CX_DDDCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_cexian_gaomidudianfa">-->
+<!--    	<generatedKey column="WTDX_CX_GMDDFID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_zonghecejing">-->
+<!--    	<generatedKey column="WTDX_ZHCJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_zonghecejing_bosuceshi">-->
+<!--    	<generatedKey column="WTDX_ZHCJ_BSCSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="wutanduixiang_zonghecejing_fangshexing">-->
+<!--    	<generatedKey column="WTDX_ZHCJ_FSXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmubianma"></table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmuduanluo"></table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmufangan"></table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmujieduan"></table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmuleixing"></table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table schema="" tableName="xiangmumingcheng"></table>&ndash;&gt;-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo">-->
+<!--    	<generatedKey column="YG_JYCGID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_bengta">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_BTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_dimianchenjiang">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_DMCJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_fengsha">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_FSID" sqlStatement="JDBC"/>	-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_huapocuoluo">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_HPCLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_nishiliu">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_NSLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_yandui">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_YDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_yanrong">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_YRID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_buliangdizhi_renweikengdong">-->
+<!--    	<generatedKey column="YG_JYCG_BLDZ_RWKDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_dicengyanxing">-->
+<!--    	<generatedKey column="YG_JYCG_DCYXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_dimao">-->
+<!--    	<generatedKey column="YG_JYCG_DMID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_duanliegouzao">-->
+<!--    	<generatedKey column="YG_JYCG_DLGZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_jieyichengguo_teshuyantu">-->
+<!--    	<generatedKey column="YG_JYCG_TSYTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="yaogan_yuanshishuju">-->
+<!--    	<generatedKey column="YG_YSSJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankong">-->
+<!--    	<generatedKey column="ZKID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi">-->
+<!--    	<generatedKey column="ZKYWCSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_biaoguan">-->
+<!--    	<generatedKey column="ZKYWCS_BGID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_chaoshengchengxiang">-->
+<!--    	<generatedKey column="ZKYWCS_CSCXID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_diyingli">-->
+<!--    	<generatedKey column="ZKYWCS_DYLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_dongtan">-->
+<!--    	<generatedKey column="ZKYWCS_DTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_pangya">-->
+<!--    	<generatedKey column="ZKYWCS_PYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi">-->
+<!--    	<generatedKey column="ZKYWCS_SWCSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_choushuishiyan">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_CSSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_choushuishiyanshuju">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_CSSYSJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_choushuishiyanshuiweihuifu">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_CSSYSWHFID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_choushuishiyanguolvqi">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_CSSYGLQID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_tishuishiyan">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_TSSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_yashuishiyan">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_YSSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_yashuishiyanjilu">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_YSSYJLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_shuiwenceshi_yashuishiyanshuiweiguancejilu">-->
+<!--    	<generatedKey column="ZKYWCS_SWCS_YSSYSWGCJLID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuankongyuanweiceshi_youhaiqiti">-->
+<!--    	<generatedKey column="ZKYWCS_YHQTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_shikengduanceng">-->
+<!--    	<generatedKey column="ZTYJYKT_SKDCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_zuankongdongtuceng">-->
+<!--    	<generatedKey column="ZTYJYKT_ZKDTCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_zuankongkongjing">-->
+<!--    	<generatedKey column="ZTYJYKT_ZKKJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_zuankongshikengdicengmiaoshu" delimitAllColumns="true">-->
+<!--    	<generatedKey column="ZTYJYKT_ZKSKDCMSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_zuankongshikengfenghuachengdu">-->
+<!--    	<generatedKey column="ZTYJYKT_ZKSKFHCDID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="zuantanyujianyikantan_zuankongshikengshuiwei">-->
+<!--    	<generatedKey column="ZTYJYKT_ZKSKSWID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_bianbancezhang">-->
+<!--    	<generatedKey column="JT_BBCZID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_danqiaojingtan">-->
+<!--    	<generatedKey column="JT_DQJTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_diceng">-->
+<!--    	<generatedKey column="JT_DCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_kongyaxiaosan">-->
+<!--    	<generatedKey column="JT_KYXSID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_kongyaxiaosanshiyan">-->
+<!--    	<generatedKey column="JTID_KYXSSYID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_kongyaxiaosanshiyanshuju">-->
+<!--    	<generatedKey column="JTID_KYXSSYSJID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_luoxuanbanzaihe">-->
+<!--    	<generatedKey column="JTID_LXBZHID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_shiziban">-->
+<!--    	<generatedKey column="JT_SZBID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_shuangqiaojingtan">-->
+<!--    	<generatedKey column="JT_SQJTID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_shuiwei">-->
+<!--    	<generatedKey column="JT_SWID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    <table schema="" tableName="jingtan_yinglichan">-->
+<!--    	<generatedKey column="JT_YLCID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+<!--    -->
+<!--    -->
+
+<!--    -->
+<!--&lt;!&ndash; ======================================================================== &ndash;&gt;-->
+
+<!--    <table schema="" tableName="wutan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="diyingli">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	-->
+<!--	<table schema="" tableName="gaomidudianfa">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gaomidudianfa_chengguowenjian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gaomidudianfa_gaomidushujuchengtao">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="cihualv">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="dadidianci">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="hangkongwutan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="hangkongwutan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="qiankongbosuceshi">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="tongmai_InSAR_jiance">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="zonghecejing">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+
+<!--	 -->
+<!--	<table schema="" tableName="wutan_bosuceshi_bck">-->
+<!--		<generatedKey column="WT_BSCSID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_cihualv_bck">-->
+<!--		<generatedKey column="WT_CHLID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_dadidianci_bck">-->
+<!--		<generatedKey column="WT_DDDCID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--    -->
+<!--    <table schema="" tableName="wutan_dixingbaihua_bck">-->
+<!--		<generatedKey column="WT_DXBHID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_diyingli_bck">-->
+<!--		<generatedKey column="WT_DYLID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_gaomidudianfa_bck">-->
+<!--		<generatedKey column="WT_GMDDFID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_zonghecejing_bck">-->
+<!--		<generatedKey column="WT_ZHCJID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_hangkongwutan_bck">-->
+<!--		<generatedKey column="WT_HKWTID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+
+<!--	<table schema="" tableName="wutan_bosuceshi">-->
+<!--		<generatedKey column="WT_BSCSID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_cihualv">-->
+<!--		<generatedKey column="WT_CHLID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_dadidianci">-->
+<!--		<generatedKey column="WT_DDDCID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--    -->
+<!--    <table schema="" tableName="wutan_dixingbaihua">-->
+<!--		<generatedKey column="WT_DXBHID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_diyingli">-->
+<!--		<generatedKey column="WT_DYLID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_gaomidudianfa">-->
+<!--		<generatedKey column="WT_GMDDFID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_zonghecejing">-->
+<!--		<generatedKey column="WT_ZHCJID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="wutan_hangkongwutan">-->
+<!--		<generatedKey column="WT_HKWTID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="duanluochengguo_pingmiantu">-->
+<!--		<generatedKey column="WT_DLCGID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="zhuantichengguo_zhuantibaogao">-->
+<!--		<generatedKey column="WT_ZTCGID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	-->
+<!--	<table schema="" tableName="files">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="diaohuishuju_guancedian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="diaohuishuju_pingmiandiaohuichengguo">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="duanluochengguo_baogaohuoshuoming">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+	
+<!--	<table schema="" tableName="duanluochengguo_bim">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="duanluochengguo_pingmiantu">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="duanluochengguo_zongduanmian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gongdian_lujigongdian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gongdian_qiaohangongdian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gongdian_quqituchanggongdian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gongdian_suidaogongdian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="gongdian_zhanchanggongdian">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="jichuziliao_quyudizhiziliao">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="jichuziliao_xianluxiantiao">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="jichuziliao_yaogan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="kantanshuju_jingtan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+
+<!--	<table schema="" tableName="kantanshuju_shikeng">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="kantanshuju_shineishiyan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="kantanshuju_wutan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="kantanshuju_yanweiceshi">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="kantanshuju_zuantan">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="zhuantichengguo_zhuantibaogao">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+
+	
+	
+<!-- =================================rbac====================================== -->
+
+<!--	<table schema="" tableName="user">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="role">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="user_role">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="permission">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="role_permission">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+<!--	-->
+<!--	<table schema="" tableName="user_register">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
+
+<!-- ==================================空间===================================== -->
+    
+
+    <table schema="" tableName="files_FK">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	<table schema="" tableName="project_information">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="dwg_pingmiantu">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="dwg_zongduanmian">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="pdf">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="pdf_jingtan">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="pdf_shikeng">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="pdf_zuankong">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="shp">
+		<generatedKey column="ID" sqlStatement="JDBC"/>
+	</table>
+
+    <table schema="" tableName="shineishiyan_shuizhifenxi">
+        <generatedKey column="SNSY_SZFXID" sqlStatement="JDBC"/>
+    </table>
+	
+	
+<!-- ================================projects======================================= -->
+	
+	<!--  
+	<table schema="china" tableName="excel_user">
+		<generatedKey column="userid" sqlStatement="JDBC"/>
+	</table>
+
+    <table schema="" tableName="project">
+    	<generatedKey column="id" sqlStatement="JDBC"/>
+    </table>
+	
+	<table schema="" tableName="projects_information">
+		<generatedKey column="id" sqlStatement="JDBC"/>
+	</table>
+	
+    <table schema="" tableName="data_classification">
+    	<generatedKey column="id" sqlStatement="JDBC"/>
+    </table>
+	
+	<table schema="" tableName="projects_information_data_classification">
+		<generatedKey column="id" sqlStatement="JDBC"/>
+	</table>
+	
+	<table schema="" tableName="dbidmap">
+    	<generatedKey column="ID" sqlStatement="JDBC"/>
+    </table>
+	
+	<table schema="" tableName="shenhe">
+    	<generatedKey column="ID" sqlStatement="JDBC"/>
+    </table>
+	
+	
+	-->
+    
+<!-- ================================temp======================================= -->    
+
+    
+<!--	<table schema="" tableName="shenhe">-->
+<!--    	<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--    </table>-->
+	
+
+
+    <!-- 有些表的字段需要指定java类型 
+    <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+      <columnOverride column="DATE_FIELD" property="startDate" />
+      <ignoreColumn column="FRED" />
+      <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
+    </table> -->
+ 
+  </context>
+</generatorConfiguration>
