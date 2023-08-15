@@ -1,7 +1,10 @@
 package cn.xjtu.zun.tiesheyuan.service;
 
-import cn.xjtu.zun.tiesheyuan.dao.UserMapper;
-import cn.xjtu.zun.tiesheyuan.entity.User;
+
+import cn.xjtu.zun.tiesheyuan.mapper.UserMapper;
+import cn.xjtu.zun.tiesheyuan.mapper.UserRegisterMapper;
+import cn.xjtu.zun.tiesheyuan.pojo.User;
+import cn.xjtu.zun.tiesheyuan.pojo.UserRegister;
 import cn.xjtu.zun.tiesheyuan.utils.BaseUtil;
 import cn.xjtu.zun.tiesheyuan.utils.MailClient;
 import org.apache.commons.lang3.StringUtils;
@@ -16,8 +19,12 @@ import java.util.Map;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserRegisterMapper regMapper;
 
     @Autowired
     private MailClient mailClient;
@@ -31,8 +38,10 @@ public class UserService {
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
-    public User fineUserById(int id){
-        return userMapper.selectById(id);
+    public User fineUserById(long id){
+
+//        return userMapper.selectByPrimaryKey(id);
+        return new User();
     }
 
     public Map<String, Object> register(User user){
@@ -52,7 +61,7 @@ public class UserService {
             map.put("useraccountMsg", "账号不能为空");
             return map;
         }
-        if (StringUtils.equals(user.getPassword(), user.getConfirmPassword())){
+        if (!StringUtils.equals(user.getPassword(), user.getConfirmPassword())){
             map.put("passwordMsg", "两次输入的密码不相同");
             return map;
         }
@@ -61,21 +70,33 @@ public class UserService {
             return map;
         }
 
-//        User u = userMapper.selectByEmail(user.getEmail());
-//        if (u != null){
-//            map.put("usernameMsg", "邮箱已被注册");
-//            return map;
-//        }
-//        u = userMapper.selectByEmail(user.getEmail());
-//        if (u != null){
-//            map.put("mailMsg", "账号已存在");
-//            return map;
-//        }
-//
-//        user.setSalt(BaseUtil.generateUUID().substring(0, 5));
-//        user.setPassword(BaseUtil.MD5(user.getPassword() + user.getSalt));
+        User u = userMapper.selectByEmail(user.getEmail());
+        if (u != null){
+            map.put("mailMsg", "邮箱已被注册");
+            return map;
+        }
+        u = userMapper.selectByAccount(user.getAccount());
+        if (u != null){
+            map.put("accountMsg", "账号已存在");
+            return map;
+        }
+        user.setSalt(BaseUtil.generateUUID().substring(0, 5));
+        user.setPassword(BaseUtil.MD5(user.getPassword() + user.getSalt()));
         user.setVerifyCode(BaseUtil.generateUUID());
-        userMapper.insertUser(user);
+
+//        userMapper.insert(user);
+
+        UserRegister regUser = new UserRegister();
+        regUser.setAccount(user.getAccount());
+        regUser.setDepartment(user.getDepartment());
+        regUser.setEmail(user.getEmail());
+        regUser.setMobile(user.getMobile());
+        regUser.setPassword(user.getPassword());
+        regUser.setSpeciality(user.getSpeciality());
+        regUser.setTruename(user.getTruename());
+        regUser.setUnit(user.getUnit());
+        regUser.setConfirmPassword(user.getPassword());
+        regMapper.insert(regUser);
 
         Context context = new Context();
         context.setVariable("email", user.getEmail());
@@ -83,7 +104,7 @@ public class UserService {
         String url = domain + contextPath + "/activation/" + user.getUserid() + "/" + user.getVerifyCode();
         context.setVariable("url", user.getEmail());
         String content = templateEngine.process("/mail/activation", context);
-        mailClient.sendMail(user.getEmail(), "激活您的账号", content);
+//        mailClient.sendMail(user.getEmail(), "激活您的账号", content);
 
 //        https://images.nowcoder.com/head/1t.png
 

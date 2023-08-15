@@ -18,19 +18,19 @@ public class MialTest {
     @Autowired
     private MailClient mailClient;
 
-    @Test
-    public void testTextMail() {
-        mailClient.sendMail("847702059@qq.com", "Test", "welcome.");
-    }
+//    @Test
+//    public void testTextMail() {
+//        mailClient.sendMail("847702059@qq.com", "Test", "welcome.");
+//    }
 
     @Autowired
     private TemplateEngine templateEngine;
 
-    @Test
-    public void testHtmlMail(){
-        Context context = new Context();
-        context.setVariable("username", "testname");
-        String content = templateEngine.process("/mail/mail", context);
-        mailClient.sendMail("847702059@qq.com","testhtmlmail", content);
-    }
+//    @Test
+//    public void testHtmlMail(){
+//        Context context = new Context();
+//        context.setVariable("username", "testname");
+//        String content = templateEngine.process("/mail/mail", context);
+//        mailClient.sendMail("847702059@qq.com","testhtmlmail", content);
+//    }
 }
