@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<script type="text/javascript" th:inline="javascript">
+    function alertwhileload(){
+        var msg = "";
+        if([[${usernameMsg}]] != null) {
+            msg = msg + [[${usernameMsg}]] + "!";
+        }
+        if([[${mailMsg}]] != null){
+            msg = msg + [[${mailMsg}]] + "!";
+        }
+        if([[${accountMsg}]] != null){
+            msg = msg + [[${accountMsg}]] + "!";
+        }
+        if([[${passwordMsg}]] != null){
+            msg = msg + [[${passwordMsg}]] + "!";
+        }
+        if(msg!==""){
+            alert(msg)
+        }
+    }
+</script>
+
+<head th:fragment="header">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册多源异构地质数据库账户</title>
+    <style type="text/css">
+        .tel_input.change::-webkit-input-placeholder {
+            font-family: monospace;
+            font-weight: bolder;
+            color: #ff2f00;
+            font-size: 1.6rem;
+        }
+
+        .tel_input.change::-moz-placeholder {
+            font-family: monospace;
+            font-weight: bolder;
+            color: #ff2f00;
+            font-size: 1.6rem;
+        }
+
+        .tel_input.change::-ms-input-placeholder {
+            font-family: monospace;
+            font-weight: bolder;
+            color: #ff2f00;
+            font-size: 1.6rem;
+        }
+    </style>
+    <!-- 	<link rel="stylesheet" href="css/login_css/index.css"> -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/register_css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/register_css/default.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/register_css/styles.css}">
+    <script th:src="@{/assets/js/register_js/prefixfree.min.js}"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body onload="alertwhileload()">
+<div class="header-title">请注册您的帐户</div>
+<div class="header-img"></div>
+
+<div id="logo">
+    <h1 class="hogo"><i> Join our team now</i></h1>
+</div>
+
+<section class="stark-login">
+    <form method="post" th:action="@{/register}">
+        <div class="fade-box" id="fade-box">
+            <input type="text" name="account" id="account"
+                   th:value="${user!=null?user.account:''}"
+                   placeholder="用户账号" autocomplete='off' required>
+<!--            <div class="invalid-feedback" th:text="${accountMsg}"></div>-->
+            <input type="text" name="truename"
+                   th:value="${user!=null?user.truename:''}"
+                   id="truename" placeholder="真实姓名" autocomplete='off' required>
+<!--            <div class="invalid-feedback" th:text="${usernameMsg}"></div>-->
+            <input type="password" name="password" id="password"
+                   th:value="${user!=null?user.password:''}"
+                   placeholder="密码" required>
+<!--            <div class="invalid-feedback" th:text="${passwordMsg}"></div>-->
+            <input type="password" name="confirmPassword" id="confirmPassword"
+                   th:value="${user!=null?user.password:''}"
+                   placeholder="确认密码" required>
+            <input type="text" name="unit" id="unit" class="style1" placeholder="单位" autocomplete='off' required>
+
+            <input type="text" name="department" id="department" class="style" placeholder="部门" autocomplete='off' required>
+
+            <input type="text" name="speciality" id="speciality" class="style" placeholder="专业" autocomplete='off' required>
+
+            <input type="text" name="mobile" id="mobile" class="style" placeholder="手机号码" onkeyup="value=value.replace(/[^\d]/g,'')"
+                   maxlength=11 autocomplete='off' required>
+            <input type="email" name="email" id="email" class="style"
+                   th:value="${user!=null?user.email:''}"
+                   placeholder="电子邮箱" autocomplete='off' required>
+<!--            <div class="invalid-feedback" th:text="${mailMsg}"></div>-->
+
+            <button type="submit" value="注册">注册</button>
+        </div>
+    </form>
+    <div class="hexagons">
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <br>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <br>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+
+        <br>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <br>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+    </div>
+</section>
+
+<div id="circle1">
+    <div id="inner-cirlce1">
+        <h2> </h2>
+    </div>
+</div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+
+
+</html>
