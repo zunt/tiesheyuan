@@ -1,8 +1,10 @@
 package cn.xjtu.zun.tiesheyuan.service;
 
 
+import cn.xjtu.zun.tiesheyuan.mapper.LoginTicketMapper;
 import cn.xjtu.zun.tiesheyuan.mapper.UserMapper;
 import cn.xjtu.zun.tiesheyuan.mapper.UserRegisterMapper;
+import cn.xjtu.zun.tiesheyuan.pojo.LoginTicket;
 import cn.xjtu.zun.tiesheyuan.pojo.User;
 import cn.xjtu.zun.tiesheyuan.pojo.UserRegister;
 import cn.xjtu.zun.tiesheyuan.utils.BaseUtil;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +34,9 @@ public class UserService {
 
     @Autowired
     private TemplateEngine templateEngine;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
 
     @Value("${tiesheyuan.path.domain}")
     private String domain;
@@ -112,5 +118,48 @@ public class UserService {
 
 
         return map;
+    }
+
+    public Map<String, Object> login(String account, String password, int expSeconds){
+        Map<String, Object> map = new HashMap<>();
+//        内容检查
+        if(StringUtils.isBlank(account)){
+            map.put("accountMsg", "账号不能为空！");
+            return map;
+        }
+        if(StringUtils.isBlank(password)){
+            map.put("passwordMsg", "密码不能为空！");
+            return map;
+        }
+
+        User user = userMapper.selectByAccount(account);
+        if (user == null){
+            map.put("accountMsg", "账号不存在！");
+            return map;
+        }
+
+//        密码验证
+        password = BaseUtil.MD5(password + user.getSalt());
+        System.out.println(BaseUtil.MD5("!zhuentao1010" + "random"));
+        if (!user.getPassword().equals(password)){
+            map.put("accountMsg", "账号或密码错误！");
+            return map;
+        }
+
+//        登录凭证
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setStatus(0);
+        loginTicket.setUserId(user.getUserid());
+        loginTicket.setTicket(BaseUtil.generateUUID());
+        loginTicket.setExpired(new Date(System.currentTimeMillis() + expSeconds * 1000L));
+        loginTicketMapper.insert(loginTicket);
+
+//        返回凭证
+        map.put("ticket", loginTicket.getTicket());
+        return map;
+    }
+
+    public void logout(String ticket){
+        loginTicketMapper.updateStatusByticket(ticket, 1);
     }
 }
