@@ -1,7 +1,9 @@
 package cn.xjtu.zun.tiesheyuan;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import cn.xjtu.zun.tiesheyuan.mapper.KantandianMapper;
 import cn.xjtu.zun.tiesheyuan.mapper.LoginTicketMapper;
+import cn.xjtu.zun.tiesheyuan.pojo.Kantandian;
 import cn.xjtu.zun.tiesheyuan.pojo.LoginTicket;
 import cn.xjtu.zun.tiesheyuan.utils.MailClient;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,8 @@ public class MapperTest {
 
     @Autowired
     private LoginTicketMapper loginTicketMapper;
+    @Autowired
+    private KantandianMapper kantandianMapper;
 
     @Test
     public void testInsertTicket(){
@@ -44,4 +48,14 @@ public class MapperTest {
     public void testUpdateTicket(){
         loginTicketMapper.updateStatusByticket("testTicket", 0);
     }
+
+    @Test
+    public void testkantandiansel(){
+        kantandianMapper.selectByGcxxid(68L,10, 10);
+        for(Kantandian kantandian:kantandianMapper.selectByGcxxid(68L,10, 10)){
+            System.out.println(kantandian.toString());
+        }
+    }
+
+
 }

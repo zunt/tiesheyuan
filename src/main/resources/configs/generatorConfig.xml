@@ -206,9 +206,9 @@
 <!--    <table schema="" tableName="jingtan">-->
 <!--    	<generatedKey column="JTID" sqlStatement="JDBC"/>-->
 <!--    </table>-->
-<!--    <table schema="" tableName="kantandian">-->
-<!--    	<generatedKey column="KTDID" sqlStatement="JDBC"/>-->
-<!--    </table>-->
+    <table schema="" tableName="kantandian">
+    	<generatedKey column="KTDID" sqlStatement="JDBC"/>
+    </table>
 <!--    <table schema="" tableName="qixiangziliao">-->
 <!--    	<generatedKey column="QXZLID" sqlStatement="JDBC"/>-->
 <!--    </table>-->
@@ -681,9 +681,9 @@
 <!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
 <!--	</table>-->
 
-	<table schema="" tableName="login_ticket">
-		<generatedKey column="ID" sqlStatement="JDBC"/>
-	</table>
+<!--	<table schema="" tableName="login_ticket">-->
+<!--		<generatedKey column="ID" sqlStatement="JDBC"/>-->
+<!--	</table>-->
 
 
 
