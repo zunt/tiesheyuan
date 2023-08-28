@@ -140,7 +140,6 @@ public class UserService {
 
 //        密码验证
         password = BaseUtil.MD5(password + user.getSalt());
-        System.out.println(BaseUtil.MD5("!zhuentao1010" + "random"));
         if (!user.getPassword().equals(password)){
             map.put("accountMsg", "账号或密码错误！");
             return map;
@@ -161,5 +160,9 @@ public class UserService {
 
     public void logout(String ticket){
         loginTicketMapper.updateStatusByticket(ticket, 1);
+    }
+
+    public LoginTicket findLoginTicket(String ticket){
+        return loginTicketMapper.selectByTicket(ticket);
     }
 }
